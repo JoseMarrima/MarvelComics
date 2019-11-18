@@ -9,7 +9,7 @@ import android.view.ViewGroup
 
 import com.josemarrima.marvelcomics.R
 
-class ListOfComics : Fragment() {
+class ListOfComicsFragment : Fragment() {
 
     private lateinit var viewModel: ListOfComicsViewModel
 

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/listOfComicsFragment">
+
+    <fragment
+        android:id="@+id/listOfComicsFragment"
+        android:name="com.josemarrima.marvelcomics.listOfComics.ListOfComicsFragment"
+        android:label="ListOfComicsFragment" />
+    <fragment
+        android:id="@+id/comicDetailsFragment"
+        android:name="com.josemarrima.marvelcomics.comicDetails.ComicDetailsFragment"
+        android:label="comic_details_fragment"
+        tools:layout="@layout/comic_details_fragment" />
+</navigation>
