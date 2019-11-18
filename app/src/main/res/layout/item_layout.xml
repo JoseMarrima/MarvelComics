@@ -6,11 +6,11 @@
     <data>
         <variable
             name="comic"
-            type="com.josemarrima.marvelapp.data.local.Comic" />
+            type="com.josemarrima.marvelcomics.data.local.Comic" />
 
         <variable
             name="clickListener"
-            type="com.josemarrima.marvelapp.listOfComics.ClickListener" />
+            type="com.josemarrima.marvelcomics.listOfComics.ClickListener" />
     </data>
 
     <com.google.android.material.card.MaterialCardView
