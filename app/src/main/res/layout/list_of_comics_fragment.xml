@@ -17,7 +17,6 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/list_comics_rv"
-            app:items="@{viewmodel.comics}"
             tools:listitem="@layout/item_layout"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             android:layout_width="match_parent"

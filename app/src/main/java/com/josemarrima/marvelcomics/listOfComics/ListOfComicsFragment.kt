@@ -8,8 +8,9 @@ import android.view.View
 import android.view.ViewGroup
 
 import com.josemarrima.marvelcomics.R
+import dagger.android.support.DaggerFragment
 
-class ListOfComicsFragment : Fragment() {
+class ListOfComicsFragment : DaggerFragment() {
 
     private lateinit var viewModel: ListOfComicsViewModel
 
@@ -23,7 +24,6 @@ class ListOfComicsFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(ListOfComicsViewModel::class.java)
-        // TODO: Use the ViewModel
     }
 
 }
