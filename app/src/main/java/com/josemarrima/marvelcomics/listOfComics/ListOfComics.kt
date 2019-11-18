@@ -11,10 +11,6 @@ import com.josemarrima.marvelcomics.R
 
 class ListOfComics : Fragment() {
 
-    companion object {
-        fun newInstance() = ListOfComics()
-    }
-
     private lateinit var viewModel: ListOfComicsViewModel
 
     override fun onCreateView(
