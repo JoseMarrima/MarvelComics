@@ -9,6 +9,7 @@ import com.josemarrima.marvelcomics.data.local.Comic
 import com.josemarrima.marvelcomics.listOfComics.ListOfComicsAdapter
 import com.josemarrima.marvelcomics.util.Resource
 import androidx.databinding.BindingAdapter
+import androidx.lifecycle.LiveData
 
 object BindingAdapter {
     @BindingAdapter("imageUrl")
@@ -24,10 +25,4 @@ object BindingAdapter {
         }
     }
 
-    @BindingAdapter("app:items")
-    @JvmStatic fun setItems(recyclerView: RecyclerView, resource: Resource<List<Comic>>?) {
-        with(recyclerView.adapter as ListOfComicsAdapter) {
-            resource?.data?.let { submitList(it) }
-        }
-    }
 }

@@ -4,9 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-        <variable
-            name="viewmodel"
-            type="com.josemarrima.marvelcomics.listOfComics.ListOfComicsViewModel" />
+
     </data>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
