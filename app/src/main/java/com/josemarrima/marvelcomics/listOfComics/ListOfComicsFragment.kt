@@ -45,7 +45,7 @@ class ListOfComicsFragment : DaggerFragment() {
         viewModel = ViewModelProviders.of(this, factory).get(ListOfComicsViewModel::class.java)
 
         viewModel.comics.observe(viewLifecycleOwner, Observer {
-            Timber.d("List of comics ${it.last()}")
+            Timber.d("List of comics ${it.get(2).url}")
             adapter.submitList(it)
         })
 

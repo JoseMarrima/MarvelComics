@@ -11,6 +11,6 @@ fun MarvelResponse.asDomainModel(): List<Comic> {
             id = it.id,
             title = it.title,
             description = it.description,
-            url = "${it.thumbnail.path+it}.${it.thumbnail.extension}")
+            url = "${it.thumbnail.path}.${it.thumbnail.extension}")
     }
 }
