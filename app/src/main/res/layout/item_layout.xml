@@ -14,7 +14,7 @@
     </data>
 
     <com.google.android.material.card.MaterialCardView
-        app:cardElevation="8dp"
+        android:layout_margin="8dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -28,6 +28,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
                 android:layout_marginEnd="8dp"
                 android:text="@{comic.title}"
                 android:textSize="14sp"
@@ -35,7 +36,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.114"
                 app:layout_constraintStart_toEndOf="@+id/internet_imageView"
-                app:layout_constraintTop_toTopOf="@+id/internet_imageView"
+                app:layout_constraintTop_toTopOf="parent"
                 tools:text="Storm (2006)" />
 
             <com.google.android.material.textview.MaterialTextView
@@ -74,9 +75,6 @@
                 android:id="@+id/internet_imageView"
                 android:layout_width="140dp"
                 android:layout_height="210dp"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="16dp"
                 android:scaleType="fitCenter"
                 app:imageUrl="@{comic.url}"
                 app:layout_constraintBottom_toBottomOf="parent"

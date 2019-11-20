@@ -11,7 +11,11 @@
         android:label="ListOfComicsFragment" >
         <action
             android:id="@+id/action_listOfComicsFragment_to_comicDetailsFragment"
-            app:destination="@id/comicDetailsFragment" />
+            app:destination="@id/comicDetailsFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
     </fragment>
     <fragment
         android:id="@+id/comicDetailsFragment"
@@ -21,5 +25,12 @@
         <argument
             android:name="comic"
             app:argType="com.josemarrima.marvelcomics.data.local.Comic" />
+        <action
+            android:id="@+id/action_comicDetailsFragment_to_listOfComicsFragment"
+            app:destination="@id/listOfComicsFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
     </fragment>
 </navigation>
