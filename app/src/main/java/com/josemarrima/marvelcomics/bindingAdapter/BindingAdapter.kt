@@ -5,6 +5,7 @@ import androidx.core.net.toUri
 import com.bumptech.glide.Glide
 import com.josemarrima.marvelcomics.R
 import androidx.databinding.BindingAdapter
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 
 object BindingAdapter {
 
@@ -15,6 +16,7 @@ object BindingAdapter {
 
             Glide.with(imgView.context)
                 .load(imgUri)
+                .diskCacheStrategy(DiskCacheStrategy.DATA)
                 .placeholder(R.drawable.orginal_image)
                 .error(R.drawable.orginal_image)
                 .into(imgView)
