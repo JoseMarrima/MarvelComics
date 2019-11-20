@@ -14,10 +14,12 @@
     </data>
 
     <com.google.android.material.card.MaterialCardView
+        app:cardElevation="8dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:onClick="@{() -> clickListener.onClick(comic)}"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
