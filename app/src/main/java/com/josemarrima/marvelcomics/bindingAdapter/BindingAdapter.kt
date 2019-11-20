@@ -2,16 +2,12 @@ package com.josemarrima.marvelcomics.bindingAdapter
 
 import android.widget.ImageView
 import androidx.core.net.toUri
-import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.josemarrima.marvelcomics.R
-import com.josemarrima.marvelcomics.data.local.Comic
-import com.josemarrima.marvelcomics.listOfComics.ListOfComicsAdapter
-import com.josemarrima.marvelcomics.util.Resource
 import androidx.databinding.BindingAdapter
-import androidx.lifecycle.LiveData
 
 object BindingAdapter {
+
     @BindingAdapter("imageUrl")
     @JvmStatic fun bindImage(imgView: ImageView, imgUrl: String?) {
         imgUrl?.let {

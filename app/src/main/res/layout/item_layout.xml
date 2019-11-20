@@ -75,6 +75,7 @@
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="16dp"
+                android:scaleType="fitCenter"
                 app:imageUrl="@{comic.url}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
