@@ -21,6 +21,10 @@ class ListOfComicsFragment : DaggerFragment() {
     @Inject
     lateinit var factory: ViewModelProviderFactory
 
+    private val adapter = ListOfComicsAdapter(ClickListener {
+
+    })
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -29,7 +33,7 @@ class ListOfComicsFragment : DaggerFragment() {
         viewModel = ViewModelProviders.of(this, factory).get(ListOfComicsViewModel::class.java)
 
         viewModel.comics.observe(viewLifecycleOwner, Observer {
-            Timber.d("List of comics $it")
+            Timber.d("List of comics ${it.last()}")
         })
 
         return inflater.inflate(R.layout.list_of_comics_fragment, container, false)

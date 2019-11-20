@@ -11,6 +11,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import retrofit2.HttpException
 import timber.log.Timber
+import java.lang.Exception
 import javax.inject.Singleton
 
 @Singleton
@@ -18,19 +19,30 @@ class ComicRepository(val comicDao: ComicDao,
                       val comicService: ComicService,
                       val responseHandler: ResponseHandler) {
 
-    private suspend fun getMarvelResponse(): Resource<MarvelResponse> {
-        return try {
-            val marvelResponse = comicService.getAsyncComicResponse(TS, API_KEY, HASH)
-            return responseHandler.handleSuccess(marvelResponse)
-        } catch (e: HttpException) {
-            responseHandler.handleException(e)
-        }
-    }
+//    private suspend fun getMarvelResponse(): Resource<MarvelResponse> {
+//        return try {
+//            val marvelResponse = comicService.getAsyncComicResponse(TS, API_KEY, HASH)
+//            Timber.d("Response from network ${marvelResponse.attributionText}")
+//            return responseHandler.handleSuccess(marvelResponse)
+//        } catch (e: HttpException) {
+//            responseHandler.handleException(e)
+//        }
+//    }
 
-    suspend fun refreshVideos() {
+    suspend fun cacheData() {
         withContext(Dispatchers.IO) {
-            Timber.d("refresh videos is called")
-            val marvelResponse = getMarvelResponse()
+            var marvelResponse: Resource<MarvelResponse>
+            Timber.d("cache data is called")
+            try {
+                val marvel = comicService.getAsyncComicResponse(TS, API_KEY, HASH)
+                Timber.d("Response from network ${marvel.attributionText}")
+                marvelResponse = responseHandler.handleSuccess(marvel)
+            } catch (e: Exception) {
+                marvelResponse = responseHandler.handleException(e)
+            }
+
+            Timber.d("Status is ${marvelResponse.status}")
+            Timber.d("Error is ${marvelResponse.message}")
             if (marvelResponse.status == Resource.Status.SUCCESS) {
                 comicDao.insertListofComics(marvelResponse.data!!.asDomainModel())
             }

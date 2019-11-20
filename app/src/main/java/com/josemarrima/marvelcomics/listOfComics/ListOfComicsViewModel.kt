@@ -16,7 +16,7 @@ class ListOfComicsViewModel @Inject constructor(private val comicRepository: Com
 
     private fun cacheData() {
         viewModelScope.launch {
-            comicRepository.refreshVideos()
+            comicRepository.cacheData()
         }
     }
 

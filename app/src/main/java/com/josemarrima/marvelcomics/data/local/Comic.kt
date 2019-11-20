@@ -6,7 +6,8 @@ import androidx.room.PrimaryKey
 
 @Entity
 data class Comic(@PrimaryKey
-                 val id: Int = 0,
-                 val title: String,
-                 val description: String,
-                 val url: String)
+                 val id: Int?,
+                 val title: String?,
+                 val description: String?,
+                 val url: String?)
+
