@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 
 import com.josemarrima.marvelcomics.R
 import com.josemarrima.marvelcomics.databinding.ListOfComicsFragmentBinding
@@ -24,7 +25,8 @@ class ListOfComicsFragment : DaggerFragment() {
     lateinit var factory: ViewModelProviderFactory
 
     private val adapter = ListOfComicsAdapter(ClickListener {
-
+        this.findNavController().navigate(ListOfComicsFragmentDirections
+            .actionListOfComicsFragmentToComicDetailsFragment(it))
     })
 
     override fun onCreateView(
@@ -45,7 +47,6 @@ class ListOfComicsFragment : DaggerFragment() {
         viewModel = ViewModelProviders.of(this, factory).get(ListOfComicsViewModel::class.java)
 
         viewModel.comics.observe(viewLifecycleOwner, Observer {
-            Timber.d("List of comics ${it.get(2).url}")
             adapter.submitList(it)
         })
 
