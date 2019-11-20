@@ -8,10 +8,18 @@
     <fragment
         android:id="@+id/listOfComicsFragment"
         android:name="com.josemarrima.marvelcomics.listOfComics.ListOfComicsFragment"
-        android:label="ListOfComicsFragment" />
+        android:label="ListOfComicsFragment" >
+        <action
+            android:id="@+id/action_listOfComicsFragment_to_comicDetailsFragment"
+            app:destination="@id/comicDetailsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/comicDetailsFragment"
         android:name="com.josemarrima.marvelcomics.comicDetails.ComicDetailsFragment"
         android:label="comic_details_fragment"
-        tools:layout="@layout/comic_details_fragment" />
+        tools:layout="@layout/comic_details_fragment" >
+        <argument
+            android:name="comic"
+            app:argType="com.josemarrima.marvelcomics.data.local.Comic" />
+    </fragment>
 </navigation>
