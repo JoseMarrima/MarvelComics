@@ -27,18 +27,17 @@ class ComicRepository(val comicDao: ComicDao,
 //        } catch (e: HttpException) {
 //            responseHandler.handleException(e)
 //        }
-//    }
 
     suspend fun cacheData() {
         withContext(Dispatchers.IO) {
-            var marvelResponse: Resource<MarvelResponse>
+            val marvelResponse: Resource<MarvelResponse>
             Timber.d("cache data is called")
-            try {
+            marvelResponse = try {
                 val marvel = comicService.getAsyncComicResponse(TS, API_KEY, HASH)
                 Timber.d("Response from network ${marvel.attributionText}")
-                marvelResponse = responseHandler.handleSuccess(marvel)
+                responseHandler.handleSuccess(marvel)
             } catch (e: Exception) {
-                marvelResponse = responseHandler.handleException(e)
+                responseHandler.handleException(e)
             }
 
             Timber.d("Status is ${marvelResponse.status}")
